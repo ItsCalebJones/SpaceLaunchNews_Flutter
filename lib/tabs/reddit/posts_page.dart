@@ -15,7 +15,7 @@ class PostsPage extends StatefulWidget {
 }
 
 class _PostsPageState extends State<PostsPage> {
-  List<Post> _posts = [];
+  List<Article> _posts = [];
 
   @override
   void initState() {
@@ -44,7 +44,7 @@ class _PostsPageState extends State<PostsPage> {
         onRefresh: _onRefresh);
   }
 
-  Future<List<Post>> _onRefresh() {
+  Future<List<Article>> _onRefresh() {
     return getTopPosts();
   }
 }

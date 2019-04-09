@@ -4,7 +4,7 @@ import 'package:share/share.dart';
 import 'package:space_launch_news/tabs/reddit/post.dart';
 
 class PostListTile extends StatelessWidget {
-  final Post post;
+  final Article post;
   final GestureTapCallback tapCallback;
 
   PostListTile(this.post, this.tapCallback);

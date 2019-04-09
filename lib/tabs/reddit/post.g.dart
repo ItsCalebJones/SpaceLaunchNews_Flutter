@@ -22,7 +22,7 @@ part of post;
 Serializer<Posts> _$postsSerializer = new _$PostsSerializer();
 Serializer<PostsData> _$postsDataSerializer = new _$PostsDataSerializer();
 Serializer<PostData> _$postDataSerializer = new _$PostDataSerializer();
-Serializer<Post> _$postSerializer = new _$PostSerializer();
+Serializer<Article> _$postSerializer = new _$PostSerializer();
 
 class _$PostsSerializer implements StructuredSerializer<Posts> {
   @override
@@ -117,7 +117,7 @@ class _$PostDataSerializer implements StructuredSerializer<PostData> {
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[
       'data',
-      serializers.serialize(object.data, specifiedType: const FullType(Post)),
+      serializers.serialize(object.data, specifiedType: const FullType(Article)),
     ];
 
     return result;
@@ -136,7 +136,7 @@ class _$PostDataSerializer implements StructuredSerializer<PostData> {
       switch (key) {
         case 'data':
           result.data.replace(serializers.deserialize(value,
-              specifiedType: const FullType(Post)) as Post);
+              specifiedType: const FullType(Article)) as Article);
           break;
       }
     }
@@ -145,14 +145,14 @@ class _$PostDataSerializer implements StructuredSerializer<PostData> {
   }
 }
 
-class _$PostSerializer implements StructuredSerializer<Post> {
+class _$PostSerializer implements StructuredSerializer<Article> {
   @override
-  final Iterable<Type> types = const [Post, _$Post];
+  final Iterable<Type> types = const [Article, _$Post];
   @override
   final String wireName = 'Post';
 
   @override
-  Iterable serialize(Serializers serializers, Post object,
+  Iterable serialize(Serializers serializers, Article object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[
       'id',
@@ -185,7 +185,7 @@ class _$PostSerializer implements StructuredSerializer<Post> {
   }
 
   @override
-  Post deserialize(Serializers serializers, Iterable serialized,
+  Article deserialize(Serializers serializers, Iterable serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = new PostBuilder();
 
@@ -418,7 +418,7 @@ class PostsDataBuilder implements Builder<PostsData, PostsDataBuilder> {
 
 class _$PostData extends PostData {
   @override
-  final Post data;
+  final Article data;
 
   factory _$PostData([void updates(PostDataBuilder b)]) =>
       (new PostDataBuilder()..update(updates)).build();
@@ -505,7 +505,7 @@ class PostDataBuilder implements Builder<PostData, PostDataBuilder> {
   }
 }
 
-class _$Post extends Post {
+class _$Post extends Article {
   @override
   final String id;
   @override
@@ -569,7 +569,7 @@ class _$Post extends Post {
   }
 
   @override
-  Post rebuild(void updates(PostBuilder b)) =>
+  Article rebuild(void updates(PostBuilder b)) =>
       (toBuilder()..update(updates)).build();
 
   @override
@@ -578,7 +578,7 @@ class _$Post extends Post {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is Post &&
+    return other is Article &&
         id == other.id &&
         author == other.author &&
         url == other.url &&
@@ -624,7 +624,7 @@ class _$Post extends Post {
   }
 }
 
-class PostBuilder implements Builder<Post, PostBuilder> {
+class PostBuilder implements Builder<Article, PostBuilder> {
   _$Post _$v;
 
   String _id;
@@ -682,7 +682,7 @@ class PostBuilder implements Builder<Post, PostBuilder> {
   }
 
   @override
-  void replace(Post other) {
+  void replace(Article other) {
     if (other == null) {
       throw new ArgumentError.notNull('other');
     }

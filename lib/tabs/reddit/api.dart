@@ -8,7 +8,7 @@ import 'package:space_launch_news/util.dart';
 const String baseUrl = 'https://www.reddit.com/r/AndroidDev/';
 const String topPostsUrl = 'top.json?count=25';
 
-Future<List<Post>> getTopPosts() async {
+Future<List<Article>> getTopPosts() async {
   final response = await http.get(Url.baseUrl(baseUrl, topPostsUrl));
 
   Posts posts =
